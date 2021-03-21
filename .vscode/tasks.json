@@ -1,0 +1,27 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+      "label": "Run Act",
+      "type": "shell",
+      "command": "act -j test",
+      "presentation": {
+				"reveal": "always",
+				"panel": "new"
+      }
+    },
+		{
+      "label": "Docker Exec",
+      "type": "shell",
+      "command": "echo 'Here is a shell inside the GitHub action container:' && docker exec -it act-CI-test /bin/sh",
+      "presentation": {
+        "reveal": "always",
+				"panel": "new"
+			}
+    },
+		{
+      "label": "Local GitHub Actions",
+      "dependsOn": ["Run Act", "Docker Exec"]
+    }
+	]
+}
